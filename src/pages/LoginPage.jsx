@@ -14,11 +14,14 @@ const LoginPage = () => {
     setError("");
     try {
       const res = await login(email, password);
+      console.log('Respuesta login:', res);
       if (!res.token) {
-        return setError(res.mensaje || "Error al iniciar sesión");
+        setError(res.mensaje || "Error al iniciar sesión");
+        return;
       }
       if (!res.usuario || !res.usuario.role) {
-        return setError("Credenciales inválidas o usuario sin rol válido");
+        setError("Credenciales inválidas o usuario sin rol válido");
+        return;
       }
       localStorage.setItem("token", res.token);
       localStorage.setItem("usuario", JSON.stringify({ id: res.usuario.id, rol: res.usuario.role }));
