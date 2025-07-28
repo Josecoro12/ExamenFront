@@ -24,7 +24,7 @@ const LoginPage = () => {
         return;
       }
       localStorage.setItem("token", res.token);
-      localStorage.setItem("usuario", JSON.stringify({ id: res.usuario.id, rol: res.usuario.role }));
+      localStorage.setItem("usuario", JSON.stringify({ id: res.usuario.id, role: res.usuario.role }));
       // Redirigir según rol
       if (res.usuario.role === "admin") {
         navigate("/admin");

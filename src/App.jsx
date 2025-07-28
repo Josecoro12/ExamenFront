@@ -9,7 +9,7 @@ const App = () => {
   const RutaProtegida = ({ children, rol }) => {
     if (!usuario) return <Navigate to="/" />;
 
-    if (rol && usuario.rol !== rol) {
+    if (rol && usuario.role !== rol) {
       return <Navigate to="/" />;
     }
 
